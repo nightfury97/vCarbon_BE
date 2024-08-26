@@ -17,7 +17,7 @@ app.use(bodyParser.json())
 app.get('/', (req, res) => {
   res.send("Welcome to my web server");
 });
-app.get('/api/treeType', (req, res) => {
+app.get('/treeType', (req, res) => {
   let treeType = [];
   treeType.push({ name: 'Keo lai', type: 'Acacia_hybrid' });
   treeType.push({ name: 'Keo lá tràm', type: 'Acacia_auriculiformis' });
@@ -54,7 +54,7 @@ app.get('/api/treeType', (req, res) => {
   res.send(treeType);
 
 });
-app.post('/api/calCacbon', (req, res) => {
+app.post('/calCacbon', (req, res) => {
 //   console.log("req",req);
   var Type = req.query.type;
   var TreeCount = Number((req.query.treecount / 10));
