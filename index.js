@@ -51,6 +51,9 @@ app.get('/treeType', (req, res) => {
   treeType.push({ name: 'Tràm lá dài', type: 'Orther' });
   treeType.push({ name: 'Tràm cừ', type: 'Orther' });
   treeType.push({ name: 'Bần chua', type: 'Orther' });
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
   res.send(treeType);
 
 });
@@ -123,6 +126,9 @@ app.post('/calCacbon', (req, res) => {
   console.log("SK",SK);
   var result = (SK/1000).toString();
   var money = (SK/10).toString();
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
   res.send({"result":result,"money":money});
 });
 
