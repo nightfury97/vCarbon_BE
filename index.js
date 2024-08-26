@@ -55,7 +55,7 @@ app.get('/treeType', (req, res) => {
 
 });
 app.post('/calCacbon', (req, res) => {
-  console.log("req",req);
+//   console.log("req",req);
   var Type = req.query.type;
   var TreeCount = Number((req.query.treecount / 10));
   var Area = Number(req.query.area);
@@ -122,7 +122,8 @@ app.post('/calCacbon', (req, res) => {
   
   console.log("SK",SK);
   var result = (SK/1000).toString();
-  res.send({"result":result});
+  var money = (SK/10).toString();
+  res.send({"result":result,"money":money});
 });
 
 // listen for requests
