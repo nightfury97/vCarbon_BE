@@ -60,6 +60,7 @@ app.get('/treeType', (req, res) => {
 function formatCurrency(number, locale = 'vi-VN') {
     return new Intl.NumberFormat(locale).format(number);
   }
+  
 app.post('/calCacbon', (req, res) => {
 //   console.log("req",req);
   var Type = req.query.type;
@@ -130,7 +131,7 @@ app.post('/calCacbon', (req, res) => {
   
   console.log("SK",SK);
   var result = ((SK/1000)*wdb*0.5*44/12).toString();
-  var money = (formatCurrency(result*25215*20)).toString()+"đ - "(formatCurrency(result*25215*100)).toString()+"đ";
+  var money = (formatCurrency(result*25215*20)).toString() + "đ - " + (formatCurrency(result*25215*100)).toString()+"đ";
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
