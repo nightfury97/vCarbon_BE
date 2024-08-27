@@ -130,7 +130,7 @@ app.post('/calCacbon', (req, res) => {
   console.log((-5.425 + 622.913*DBH*0.5)*Area*TreeCount);
   
   console.log("SK",SK);
-  var result = ((SK/1000)*wbd*0.5*44/12).toString();
+  var result = ((SK/1000)*(wbd/1000)*0.5*44/12).toString();
   var money = (formatCurrency(result*25215*20)).toString() + "đ - " + (formatCurrency(result*25215*100)).toString()+"đ";
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
