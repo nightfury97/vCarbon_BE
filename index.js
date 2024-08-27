@@ -57,17 +57,22 @@ app.get('/treeType', (req, res) => {
   res.send(treeType);
 
 });
+function formatCurrency(number, locale = 'vi-VN') {
+    return new Intl.NumberFormat(locale).format(number);
+  }
 app.post('/calCacbon', (req, res) => {
 //   console.log("req",req);
   var Type = req.query.type;
   var TreeCount = Number((req.query.treecount / 10));
   var Area = Number(req.query.area);
   var DBH = Number(req.query.dbh);
+  var wdb = Number(req.query.wdb);
   var SK=0;
   console.log("Type",Type);
   console.log("TreeCount",TreeCount);
   console.log("Area",Area);
   console.log("DBH",DBH);
+  console.log("wdb",wdb);
   switch (Type) {
     case "Acacia_hybrid":
         console.log("(-5.425 + 622.913*DBH*0.5)*Area*TreeCount");
@@ -124,8 +129,8 @@ app.post('/calCacbon', (req, res) => {
   console.log((-5.425 + 622.913*DBH*0.5)*Area*TreeCount);
   
   console.log("SK",SK);
-  var result = (SK/1000).toString();
-  var money = (SK/10).toString();
+  var result = ((SK/1000)*wdb*0.5*44/12).toString();
+  var money = (formatCurrency(result*25215*20)).toString()+"đ - "(formatCurrency(result*25215*100)).toString()+"đ";
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
