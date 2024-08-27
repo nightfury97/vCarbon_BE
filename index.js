@@ -49,7 +49,7 @@ app.get('/treeType', (req, res) => {
   treeType.push({ name: 'Trám trắng', type: 'Orther' });
   treeType.push({ name: 'Trám đen', type: 'Orther' });
   treeType.push({ name: 'Tràm lá dài', type: 'Orther' });
-  treeType.push({ name: 'Tràm cừ', type: 'Orther' });
+//   treeType.push({ name: 'Tràm cừ', type: 'Orther' });
   treeType.push({ name: 'Bần chua', type: 'Orther' });
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
